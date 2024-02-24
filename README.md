@@ -24,9 +24,16 @@ conda activate flygym
 ```
 Clone the flygym repository
 ```sh
-git clone git@github.com:NeLy-EPFL/flygym.git
+git clone https://github.com/NeLy-EPFL/flygym
 ```
-Next, change directory to the cloned repository and install the flygym package in editable mode:
+Next, change directory to the cloned repository and install the flygym package in editable mode.
+
+For Windows and Linux:
+```sh
+cd flygym
+pip install -e .[mujoco]
+```
+For macOS:
 ```sh
 cd flygym
 pip install -e ."[mujoco]"
@@ -41,7 +48,7 @@ If you encounter any issues during the installation, feel free to reach out to t
 # Running the notebooks
 Clone this repository:
 ```sh
-git clone git@github.com:NeLy-EPFL/cobar-exercises.git
+git clone https://github.com/NeLy-EPFL/cobar-exercises
 ```
 Open the `cobar-exercises` folder with Visual Studio Code: **File > Open...**
 
