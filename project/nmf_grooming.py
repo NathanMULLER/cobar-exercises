@@ -25,19 +25,6 @@ all_groom_dofs = (
         ]
     ]  # Front leg joints
     + [
-        f"joint_{side}H{dof}"
-        for side in "LR"
-        for dof in [
-            "Coxa",
-            "Coxa_roll",
-            "Coxa_yaw",
-            "Femur",
-            "Femur_roll",
-            "Tibia",
-            "Tarsus1",
-        ]
-    ]  # Back leg joints
-    + [
         f"joint_{side}{dof}{angle}"
         for side in "LR"
         for dof in ["Pedicel"]
