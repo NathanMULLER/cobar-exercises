@@ -101,13 +101,15 @@ class NeuromechflyGrooming(NeuroMechFly):
         # set the stiffness and damping of antennal joints
         for joint in self.model.find_all("joint"):
             if any([app in joint.name for app in ["Pedicel", "Arista", "Funiculus"]]):
-                joint.stiffness = 1e-3
+                print(joint)
+                joint.stiffness = 0.1
                 joint.damping = 1e-3
 
         return None
 
-    def _set_actuators_gain(self):
-        for actuator in self._actuators:
+    def _add_joint_actuators(self, gain):
+        actuators = super()._add_joint_actuators(gain)
+        for actuator in actuators:
             if "Arista" in actuator.name:
                 kp = 1e-6
             elif "Pedicel" in actuator.name or "Funiculus" in actuator.name:
@@ -115,7 +117,8 @@ class NeuromechflyGrooming(NeuroMechFly):
             else:
                 kp = 20.0
             actuator.kp = kp
-        return None
+
+        return actuators
 
     def _zoom_camera(self):
         if self.sim_params.render_camera == "Animat/camera_front":
